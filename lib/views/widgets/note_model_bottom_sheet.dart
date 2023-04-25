@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constans.dart';
-import 'package:notes_app/widgets/custom_bottom.dart';
-import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:notes_app/views/widgets/custom_bottom.dart';
+import 'package:notes_app/views/widgets/custom_text_field.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
