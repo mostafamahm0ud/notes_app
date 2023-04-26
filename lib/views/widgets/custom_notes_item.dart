@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_notes_view.dart';
 
 class NotesItem extends StatelessWidget {
-  const NotesItem({super.key});
-
+  const NotesItem({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,24 +20,24 @@ class NotesItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(top: 24, bottom: 24, left: 14),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 250, 191, 114),
+          color:  Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter tips',
-                style: TextStyle(color: Colors.black, fontSize: 24),
+              title: Text(
+                note.title,
+                style: const TextStyle(color: Colors.black, fontSize: 24),
               ),
-              subtitle: const Padding(
-                padding: EdgeInsets.only(
+              subtitle: Padding(
+                padding: const EdgeInsets.only(
                   top: 16,
                   bottom: 16,
                 ),
-                child: Text('Build your career with mine',
-                    style: TextStyle(
+                child: Text(note.subtitle,
+                    style: const TextStyle(
                       color: Color.fromARGB(104, 0, 0, 0),
                       fontSize: 16,
                     )),
@@ -50,11 +51,11 @@ class NotesItem extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(right: 24),
+            Padding(
+              padding: const EdgeInsets.only(right: 24),
               child: Text(
-                'May21,2023',
-                style: TextStyle(
+                note.date,
+                style: const TextStyle(
                   color: Color.fromARGB(104, 0, 0, 0),
                   fontSize: 16,
                 ),
